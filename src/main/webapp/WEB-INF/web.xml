@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="6.0"
+         xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+         https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+
+    <display-name>Event Outfit</display-name>
+
+    <listener>
+        <listener-class>styleforevent.listener.AppContextListener</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>styleforevent.listener.SessionListener</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>styleforevent.listener.RequestListener</listener-class>
+    </listener>
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <servlet>
+        <servlet-name>AuthServlet</servlet-name>
+        <servlet-class>styleforevent.controller.AuthServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AuthServlet</servlet-name>
+        <url-pattern>/auth/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HomeServlet</servlet-name>
+        <servlet-class>styleforevent.controller.HomeServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HomeServlet</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>styleforevent.controller.LogoutServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>styleforevent.filter.AuthFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Сервлет для образов (CRUD) -->
+    <servlet>
+        <servlet-name>OutfitServlet</servlet-name>
+        <servlet-class>styleforevent.controller.OutfitServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OutfitServlet</servlet-name>
+        <url-pattern>/outfits</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>OutfitCatalogServlet</servlet-name>
+        <servlet-class>styleforevent.controller.OutfitCatalogServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OutfitCatalogServlet</servlet-name>
+        <url-pattern>/outfit-catalog</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FavoritesServlet</servlet-name>
+        <servlet-class>styleforevent.controller.FavoritesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FavoritesServlet</servlet-name>
+        <url-pattern>/favorites</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ViewOutfitServlet</servlet-name>
+        <servlet-class>styleforevent.controller.ViewOutfitServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewOutfitServlet</servlet-name>
+        <url-pattern>/view-outfit</url-pattern>
+    </servlet-mapping>
+
+</web-app>
